@@ -101,13 +101,13 @@ window.__ModuleLoader__.load({
 
     /** Register the global layer. */
     function apply(ctx) {
-      ctx.effect(() => {
+      ctx.effect(() => ctx.slots.inject('shell.overlay', () => {
         const dispose = ctx.slots.register(
           { name: 'shell.overlay', id: 'tab-middle-click.overlay' },
           TabMiddleClickLayer,
         )
         return () => dispose?.()
-      })
+      }))
     }
 
     return {

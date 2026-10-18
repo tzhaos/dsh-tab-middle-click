@@ -106,7 +106,10 @@ function scenario(kind = 'close') {
   const componentCleanups = []
   const ctx = {
     effect(factory) { effects.push(factory()) },
-    slots: { register(options, component) { registrations.push({ options, component }); return () => {} } },
+    slots: {
+        register(options, component) { registrations.push({ options, component }); return () => {} },
+        inject(name, callback) { return callback() },
+      },
   }
   let loaded
   const sandbox = {
@@ -155,7 +158,7 @@ function emit(listeners, type, target, button) {
 
 await check('manifest declares a DSH bundle and web client half', () => {
   assert.equal(manifest.name, 'dsh-tab-middle-click')
-  assert.equal(manifest.version, '1.0.0')
+  assert.equal(manifest.version, '1.0.1')
   assert.equal(manifest.license, 'MIT')
   assert.equal(manifest.main, 'index.js')
   assert.equal(manifest.exports['./client'], './client.js')

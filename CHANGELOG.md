@@ -1,3 +1,14 @@
+## [1.0.1] - 2026-10-19
+
+### Fixed
+
+- Register the overlay through `ctx.slots.inject('shell.overlay')` so activation waits for the host
+  slot instead of failing on a fresh boot.
+
+### Verified
+
+- `node scripts/check.mjs`: 13 checks green.
+
 # Changelog
 
 All notable changes to this project are documented in this file.

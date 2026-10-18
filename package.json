@@ -1,6 +1,6 @@
 {
   "name": "dsh-tab-middle-click",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Close DSH sidebar/dock tabs with a middle-click, using the tab's existing close control.",
   "type": "module",
